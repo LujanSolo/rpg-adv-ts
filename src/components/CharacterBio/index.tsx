@@ -1,13 +1,14 @@
-import { Character } from '../../types/Character';
+import { CharacterBio } from '../../types/CharacterBio';
 import { useState } from 'react';
 
-export const CharSheetForm = () => {
-  const [character, setCharacter] = useState<Character>({
+export const CharBio = () => {
+  const [character, setCharacter] = useState<CharacterBio>({
     id: '',
     name: '',
     species: '',
     profession: '',
     age: 0,
+
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
