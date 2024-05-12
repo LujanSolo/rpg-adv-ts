@@ -1,10 +1,11 @@
-
+import { CharBioBlock } from './components/CharacterBio'
 import './App.css'
 
 export default function App() {
   return (
     <div>
-      <h1>Character Details</h1>
+      <h3>Character Details</h3>
+      <CharBioBlock />
     </div>
   )
 }

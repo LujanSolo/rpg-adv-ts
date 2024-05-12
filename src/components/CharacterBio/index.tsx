@@ -1,9 +1,10 @@
 import { CharacterBio } from '../../types/CharacterBio';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-export const CharBio = () => {
+export const CharBioBlock = () => {
   const [character, setCharacter] = useState<CharacterBio>({
-    id: '',
+    id: uuidv4(),
     name: '',
     species: '',
     profession: '',
@@ -11,7 +12,7 @@ export const CharBio = () => {
 
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
     setCharacter({
       ...character,
       [e.target.name]: e.target.value,
@@ -35,15 +36,25 @@ export const CharBio = () => {
         />
       </label>
       <label htmlFor="species">Species
-        <input
-          type="text"
-          name="species"
+        <select
+          name='species'
           value={character.species}
-          onChange={handleChange}
-        />
+          onChange={handleChange}>
+          <option value='select one'>Select One</option>
+          <option value='human'>Human</option>
+          <option value='droid'>Droid</option>
+          <option value='wookiee'>Wookiee</option>
+          <option value='rodian'>Rodian</option>
+          <option value='trandoshan'>Trandoshan</option>
+          <option value='twilek'>Twi'lek</option>
+        </select>
       </label>
       <label htmlFor="profession">Profession
-        <select>
+        <select
+          name='profession'
+          value={character.profession}
+          onChange={handleChange}  
+        >
           <option value=''>Select a template</option>
           <option value='none'>None - self created</option>
           <option value='noble'>Noble</option>
