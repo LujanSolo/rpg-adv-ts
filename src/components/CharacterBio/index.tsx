@@ -21,7 +21,7 @@ export const CharBioBlock = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(character);
+    console.log({character});
   };
 
   return (
