@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 import './styles.css';
 
 const AttsAndSkills = () => {
@@ -24,7 +24,7 @@ const AttsAndSkills = () => {
 
 
 
-  const handleIncrement = (value: number, modifier: number, setValue: any, setModifier: any) => {
+  const handleIncrement = (value: number, modifier: number, setValue: Dispatch<SetStateAction<number>>, setModifier: Dispatch<SetStateAction<number>>) => {
     if (totalPoints > 0 && value < 4) {
       setModifier(modifier + 1);
       if (modifier === 2) {
@@ -35,7 +35,7 @@ const AttsAndSkills = () => {
     }
   };
 
-  const handleDecrement = (value: number, modifier: number, setValue: any, setModifier: any) => {
+  const handleDecrement = (value: number, modifier: number, setValue: Dispatch<SetStateAction<number>>, setModifier: Dispatch<SetStateAction<number>>) => {
     if (totalPoints < 54) {
       setModifier(modifier - 1)
       if (modifier === 0) {
