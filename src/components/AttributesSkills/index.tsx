@@ -22,9 +22,11 @@ const AttsAndSkills = () => {
   const [mechValue, setMechValue] = useState<number>(2);
   const [mechModifier, setMechModifier] = useState<number>(0);
 
-
-
-  const handleIncrement = (value: number, modifier: number, setValue: Dispatch<SetStateAction<number>>, setModifier: Dispatch<SetStateAction<number>>) => {
+  const handleIncrement = (
+    value: number, 
+    modifier: number, 
+    setValue: Dispatch<SetStateAction<number>>, 
+    setModifier: Dispatch<SetStateAction<number>>) => {
     if (totalPoints > 0 && value < 4) {
       setModifier(modifier + 1);
       if (modifier === 2) {
@@ -35,8 +37,12 @@ const AttsAndSkills = () => {
     }
   };
 
-  const handleDecrement = (value: number, modifier: number, setValue: Dispatch<SetStateAction<number>>, setModifier: Dispatch<SetStateAction<number>>) => {
-    if (totalPoints < 18 && value > 0) {
+  const handleDecrement = (
+    value: number, 
+    modifier: number, 
+    setValue: Dispatch<SetStateAction<number>>, 
+    setModifier: Dispatch<SetStateAction<number>>) => {
+    if (totalPoints < 54 && value > 0) {
       setModifier(modifier - 1)
       if (modifier === 0) {
         setValue(value - 1);
@@ -44,23 +50,22 @@ const AttsAndSkills = () => {
       }
       setTotalPoints(totalPoints + 1);
     }
-  }
+  };
 
-  
   return (
     <section>
       <h2>total points: <span>{totalPoints}</span></h2>
       <div>
         <h4>Dexterity</h4>
-        <h4>{Math.abs(dexValue)}<span>D</span></h4>
+        <h4>{(dexValue)}<span>D6</span></h4>
         <h4>+</h4>
         <h4>{dexModifier}</h4>
         <button onClick={() => handleDecrement(dexValue, dexModifier, setDexValue, setDexModifier)}>-</button>
-        <button onClick={() => handleIncrement(dexValue, dexModifier, setDexValue, setDexModifier)}>+</button>        
+        <button onClick={() => handleIncrement(dexValue, dexModifier, setDexValue, setDexModifier)}>+</button>
       </div>
       <div>
         <h4>Strength</h4>
-        <h4>{Math.abs(strValue)}<span>D</span></h4>
+        <h4>{Math.abs(strValue)}<span>D6</span></h4>
         <h4>+</h4>
         <h4>{strModifier}</h4>
         <button onClick={() => handleDecrement(strValue, strModifier, setStrValue, setStrModifier)}>-</button>
@@ -68,15 +73,15 @@ const AttsAndSkills = () => {
       </div>
       <div>
         <h4>Perception</h4>
-        <h4>{Math.abs(percValue)}<span>D</span></h4>
+        <h4>{Math.abs(percValue)}<span>D6</span></h4>
         <h4>+</h4>
         <h4>{percModifier}</h4>
         <button onClick={() => handleDecrement(percValue, percModifier, setPercValue, setPercModifier)}>-</button>
-        <button onClick={() => handleIncrement(percValue, percModifier, setPercValue, setPercModifier)}>+</button>        
+        <button onClick={() => handleIncrement(percValue, percModifier, setPercValue, setPercModifier)}>+</button>
       </div>
       <div>
         <h4>Knowledge</h4>
-        <h4>{Math.abs(knowValue)}<span>D</span></h4>
+        <h4>{Math.abs(knowValue)}<span>D6</span></h4>
         <h4>+</h4>
         <h4>{knowModifier}</h4>
         <button onClick={() => handleDecrement(knowValue, knowModifier, setKnowValue, setKnowModifier)}>-</button>
@@ -84,7 +89,7 @@ const AttsAndSkills = () => {
       </div>
       <div>
         <h4>Mechanical</h4>
-        <h4>{Math.abs(mechValue)}<span>D</span></h4>
+        <h4>{Math.abs(mechValue)}<span>D6</span></h4>
         <h4>+</h4>
         <h4>{mechModifier}</h4>
         <button onClick={() => handleDecrement(mechValue, mechModifier, setMechValue, setMechModifier)}>-</button>
@@ -92,7 +97,7 @@ const AttsAndSkills = () => {
       </div>
       <div>
         <h4>Technical</h4>
-        <h4>{Math.abs(techValue)}<span>D</span></h4>
+        <h4>{Math.abs(techValue)}<span>D6</span></h4>
         <h4>+</h4>
         <h4>{techModifier}</h4>
         <button onClick={() => handleDecrement(techValue, techModifier, setTechValue, setTechModifier)}>-</button>
