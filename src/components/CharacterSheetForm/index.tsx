@@ -1,5 +1,5 @@
 import { CharBioBlock } from '../CharacterBio';
-import AttsAndSkills from '../AttributesSkills';
+import { AttributesAndSkills } from '../AttributesAndSkills';
 
 
 
@@ -9,7 +9,7 @@ export default function CharacterSheetForm() {
       <h3>Character Details</h3>
       <CharBioBlock />
       <h3>Attributes and Skills</h3>
-      <AttsAndSkills />
+      <AttributesAndSkills />
     </div>
   )
 

@@ -1,7 +1,9 @@
 import { useState, Dispatch, SetStateAction } from 'react';
+// import { skillsData, Skill } from './skillsList';
 import './styles.css';
 
-const AttsAndSkills = () => {
+
+export const AttributesAndSkills = () => {
   const [totalPoints, setTotalPoints] = useState<number>(18);
 
   const [dexValue, setDexValue] = useState<number>(2);
@@ -21,6 +23,21 @@ const AttsAndSkills = () => {
 
   const [mechValue, setMechValue] = useState<number>(2);
   const [mechModifier, setMechModifier] = useState<number>(0);
+
+  // const [skills, setSkills] = useState<Skill[]>(skillsData.map(skill => ({ ...skill, value: skill.defaultValue })));
+
+  // const handleSkillIncrement = (skillName: string) => {
+  //   setSkills(skills.map(skill =>
+  //     skill.name === skillName ? { ...skill, value: skill.value -1 } : skill
+  //   ))
+  // };
+
+  // const handleSkillDecrement = (skillName: string) => {
+  //   setSkills(skills.map(skill =>
+  //     skill.name === skillName ? { ...skill, value: skill.value - 1 } : skill
+  //   ));
+  // };
+
 
   const handleIncrement = (
     value: number, 
@@ -51,6 +68,8 @@ const AttsAndSkills = () => {
       setTotalPoints(totalPoints + 1);
     }
   };
+
+
 
   return (
     <section>
@@ -103,8 +122,17 @@ const AttsAndSkills = () => {
         <button onClick={() => handleDecrement(techValue, techModifier, setTechValue, setTechModifier)}>-</button>
         <button onClick={() => handleIncrement(techValue, techModifier, setTechValue, setTechModifier)}>+</button>
       </div>
+      {/* <div>
+        <h4>Skills</h4>
+        {skills.map(skill => (
+          <div key={skill.name}>
+            <h4>{skill.name}</h4>
+            <h4>{skill.value}</h4>
+            <button onClick={() => handleSkillDecrement(skill.name)}>-</button>
+            <button onClick={() => handleSkillIncrement(skill.name)}>+</button>
+          </div>
+        ))}
+        </div> */}
     </section>
   )
-}
-
-export default AttsAndSkills;
+};
