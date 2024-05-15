@@ -2,6 +2,7 @@ export interface Skill {
   name: string;
   parentAttribute: string;
   defaultValue: (parentAttributeValue: number) => number;
+  defaultModifier: (parentModifierValue: number) => number;
 }
 
 export const skillsData: Record<string, Skill[]> = {
@@ -9,37 +10,44 @@ export const skillsData: Record<string, Skill[]> = {
     {
       name: 'Blaster',
       parentAttribute: 'dexterity',
-      defaultValue: (dexterity: number) => dexterity
+      defaultValue: (dexterity: number) => dexterity,
+      defaultModifier: (dexterity: number) => dexterity,
     },
     {
       name: 'Brawling Parry',
       parentAttribute: 'dexterity',
-      defaultValue: (dexterity: number) => dexterity
+      defaultValue: (dexterity: number) => dexterity,
+      defaultModifier: (dexterity: number) => dexterity,
     },
     {
       name: 'Dodge',
       parentAttribute: 'dexterity',
-      defaultValue: (dexterity: number) => dexterity
+      defaultValue: (dexterity: number) => dexterity,
+      defaultModifier: (dexterity: number) => dexterity,
     },
     {
       name: 'Grenade',
       parentAttribute: 'dexterity',
-      defaultValue: (dexterity: number) => dexterity
+      defaultValue: (dexterity: number) => dexterity,
+      defaultModifier: (dexterity: number) => dexterity,
     },
     {
       name: 'Heavy Weapons',
       parentAttribute: 'dexterity',
-      defaultValue: (dexterity: number) => dexterity
+      defaultValue: (dexterity: number) => dexterity,
+      defaultModifier: (dexterity: number) => dexterity,
     },
     {
       name: 'Melee Parry',
       parentAttribute: 'dexterity',
-      defaultValue: (dexterity: number) => dexterity
+      defaultValue: (dexterity: number) => dexterity,
+      defaultModifier: (dexterity: number) => dexterity,
     },
     {
       name: 'Melee',
       parentAttribute: 'dexterity',
-      defaultValue: (dexterity: number) => dexterity
+      defaultValue: (dexterity: number) => dexterity,
+      defaultModifier: (dexterity: number) => dexterity,
     },
   ],
 
@@ -242,4 +250,4 @@ export const skillsData: Record<string, Skill[]> = {
       defaultValue: (technical: number) => technical
     },
   ]
-}
+};

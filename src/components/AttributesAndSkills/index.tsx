@@ -1,5 +1,5 @@
 import { useState, Dispatch, SetStateAction } from 'react';
-// import { skillsData, Skill } from './skillsList';
+import { skillsData, Skill } from './skillsList';
 import './styles.css';
 
 
@@ -76,15 +76,26 @@ export const AttributesAndSkills = () => {
       <h2>total points: <span>{totalPoints}</span></h2>
       <div>
         <h4>Dexterity</h4>
-        <h4>{(dexValue)}<span>D6</span></h4>
+        <h4>{(dexValue)}<span>d6</span></h4>
         <h4>+</h4>
         <h4>{dexModifier}</h4>
         <button onClick={() => handleDecrement(dexValue, dexModifier, setDexValue, setDexModifier)}>-</button>
         <button onClick={() => handleIncrement(dexValue, dexModifier, setDexValue, setDexModifier)}>+</button>
+        <div>
+          <br />
+          {skillsData.dexterity.map(skill => (
+            <div key={skill.name}>
+              <h4>{skill.name}</h4>
+              <h4>{skill.defaultValue(dexValue)}d6 + <span>{skill.defaultModifier(dexModifier)}</span></h4>
+              <button>-</button>
+              <button>+</button>
+            </div>
+          ))}
+        </div>
       </div>
       <div>
         <h4>Strength</h4>
-        <h4>{Math.abs(strValue)}<span>D6</span></h4>
+        <h4>{Math.abs(strValue)}<span>d6</span></h4>
         <h4>+</h4>
         <h4>{strModifier}</h4>
         <button onClick={() => handleDecrement(strValue, strModifier, setStrValue, setStrModifier)}>-</button>
@@ -92,7 +103,7 @@ export const AttributesAndSkills = () => {
       </div>
       <div>
         <h4>Perception</h4>
-        <h4>{Math.abs(percValue)}<span>D6</span></h4>
+        <h4>{Math.abs(percValue)}<span>d6</span></h4>
         <h4>+</h4>
         <h4>{percModifier}</h4>
         <button onClick={() => handleDecrement(percValue, percModifier, setPercValue, setPercModifier)}>-</button>
@@ -100,7 +111,7 @@ export const AttributesAndSkills = () => {
       </div>
       <div>
         <h4>Knowledge</h4>
-        <h4>{Math.abs(knowValue)}<span>D6</span></h4>
+        <h4>{Math.abs(knowValue)}<span>d6</span></h4>
         <h4>+</h4>
         <h4>{knowModifier}</h4>
         <button onClick={() => handleDecrement(knowValue, knowModifier, setKnowValue, setKnowModifier)}>-</button>
@@ -108,7 +119,7 @@ export const AttributesAndSkills = () => {
       </div>
       <div>
         <h4>Mechanical</h4>
-        <h4>{Math.abs(mechValue)}<span>D6</span></h4>
+        <h4>{Math.abs(mechValue)}<span>d6</span></h4>
         <h4>+</h4>
         <h4>{mechModifier}</h4>
         <button onClick={() => handleDecrement(mechValue, mechModifier, setMechValue, setMechModifier)}>-</button>
@@ -116,23 +127,12 @@ export const AttributesAndSkills = () => {
       </div>
       <div>
         <h4>Technical</h4>
-        <h4>{Math.abs(techValue)}<span>D6</span></h4>
+        <h4>{Math.abs(techValue)}<span>d6</span></h4>
         <h4>+</h4>
         <h4>{techModifier}</h4>
         <button onClick={() => handleDecrement(techValue, techModifier, setTechValue, setTechModifier)}>-</button>
         <button onClick={() => handleIncrement(techValue, techModifier, setTechValue, setTechModifier)}>+</button>
       </div>
-      {/* <div>
-        <h4>Skills</h4>
-        {skills.map(skill => (
-          <div key={skill.name}>
-            <h4>{skill.name}</h4>
-            <h4>{skill.value}</h4>
-            <button onClick={() => handleSkillDecrement(skill.name)}>-</button>
-            <button onClick={() => handleSkillIncrement(skill.name)}>+</button>
-          </div>
-        ))}
-        </div> */}
     </section>
   )
 };
